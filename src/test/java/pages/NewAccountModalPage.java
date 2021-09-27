@@ -1,5 +1,6 @@
 package pages;
 
+import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import wrappers.Checkbox;
@@ -20,34 +21,61 @@ public class NewAccountModalPage extends BasePage {
         super(driver);
     }
 
+    @Override
+    public BasePage open() {
+        return null;
+    }
+
     public boolean isModalScreenOpened() {
         isVisible(MODAL_SCREEN);
         return true;
     }
 
-    public void createNewAccount(String accountName, String phone, String fax, String webSite, String option, String option1,
-                                 String employees, String annualRevenue, String description, String billingStreet, String billingCity,
-                                 String billingStateProvince, String billingZipPostalCode, String billingCountry, String shippingStreet,
-                                 String shippingCity, String shippingStateProvince, String shippingZipPostalCode, String shippingCountry) {
-        new Input(driver, "Account Name").write(accountName);
-        new Input(driver, "Phone").write(phone);
-        new Input(driver, "Fax").write(fax);
-        new Input(driver, "Website").write(webSite);
-        new Dropdown(driver, "Type").selectOption(option);
-        new Dropdown(driver, "Industry").selectOption(option1);
-        new Input(driver, "Employees").write(employees);
-        new Input(driver, "Annual Revenue").write(annualRevenue);
-        new TextArea(driver, "Description").write(description);
-        new TextArea(driver, "Billing Street").write(billingStreet);
-        new Input(driver, "Billing City").write(billingCity);
-        new Input(driver, "Billing State/Province").write(billingStateProvince);
-        new Input(driver, "Billing Zip/Postal Code").write(billingZipPostalCode);
-        new Input(driver, "Billing Country").write(billingCountry);
-        new TextArea(driver, "Shipping Street").write(shippingStreet);
-        new Input(driver, "Shipping City").write(shippingCity);
-        new Input(driver, "Shipping State/Province").write(shippingStateProvince);
-        new Input(driver, "Shipping Zip/Postal Code").write(shippingZipPostalCode);
-        new Input(driver, "Shipping Country").write(shippingCountry);
+//    public void createNewAccount(String accountName, String phone, String fax, String webSite, String option, String option1,
+//                                 String employees, String annualRevenue, String description, String billingStreet, String billingCity,
+//                                 String billingStateProvince, String billingZipPostalCode, String billingCountry, String shippingStreet,
+//                                 String shippingCity, String shippingStateProvince, String shippingZipPostalCode, String shippingCountry) {
+//        new Input(driver, "Account Name").write(accountName);
+//        new Input(driver, "Phone").write(phone);
+//        new Input(driver, "Fax").write(fax);
+//        new Input(driver, "Website").write(webSite);
+//        new Dropdown(driver, "Type").selectOption(option);
+//        new Dropdown(driver, "Industry").selectOption(option1);
+//        new Input(driver, "Employees").write(employees);
+//        new Input(driver, "Annual Revenue").write(annualRevenue);
+//        new TextArea(driver, "Description").write(description);
+//        new TextArea(driver, "Billing Street").write(billingStreet);
+//        new Input(driver, "Billing City").write(billingCity);
+//        new Input(driver, "Billing State/Province").write(billingStateProvince);
+//        new Input(driver, "Billing Zip/Postal Code").write(billingZipPostalCode);
+//        new Input(driver, "Billing Country").write(billingCountry);
+//        new TextArea(driver, "Shipping Street").write(shippingStreet);
+//        new Input(driver, "Shipping City").write(shippingCity);
+//        new Input(driver, "Shipping State/Province").write(shippingStateProvince);
+//        new Input(driver, "Shipping Zip/Postal Code").write(shippingZipPostalCode);
+//        new Input(driver, "Shipping Country").write(shippingCountry);
+//    }
+
+    public void createNewAccount(Account account) {
+        new Input(driver, "Account Name").write(account.getAccountName());
+        new Input(driver, "Phone").write(account.getPhone());
+        new Input(driver, "Fax").write(account.getFax());
+        new Input(driver, "Website").write(account.getWebSite());
+        new Dropdown(driver, "Type").selectOption(account.getOption());
+        new Dropdown(driver, "Industry").selectOption(account.getOption1());
+        new Input(driver, "Employees").write(account.getEmployees());
+        new Input(driver, "Annual Revenue").write(account.getAnnualRevenue());
+        new TextArea(driver, "Description").write(account.getDescription());
+        new TextArea(driver, "Billing Street").write(account.getBillingStreet());
+        new Input(driver, "Billing City").write(account.getBillingCity());
+        new Input(driver, "Billing State/Province").write(account.getBillingStateProvince());
+        new Input(driver, "Billing Zip/Postal Code").write(account.getBillingZipPostalCode());
+        new Input(driver, "Billing Country").write(account.getBillingCountry());
+        new TextArea(driver, "Shipping Street").write(account.getShippingStreet());
+        new Input(driver, "Shipping City").write(account.getShippingCity());
+        new Input(driver, "Shipping State/Province").write(account.getShippingStateProvince());
+        new Input(driver, "Shipping Zip/Postal Code").write(account.getShippingZipPostalCode());
+        new Input(driver, "Shipping Country").write(account.getShippingCountry());
     }
 
     public void copyBillingAddressToShippingAddress() {

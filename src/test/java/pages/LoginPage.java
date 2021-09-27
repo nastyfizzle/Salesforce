@@ -15,18 +15,20 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    public void open() {
+    @Override
+    public LoginPage open() {
         driver.get(LOGIN_URL);
+        return this;
     }
 
     public boolean isPageOpened() {
-        isVisible(LOGIN_FORM);
-        return true;
+        return isVisible(LOGIN_FORM);
     }
 
-    public void login(String username, String password) {
+    public HomePage login(String username, String password) {
         driver.findElement(USERNAME_LOCATOR).sendKeys(username);
         driver.findElement(PASSWORD_LOCATOR).sendKeys(password);
         driver.findElement(LOGIN_BUTTON_LOCATOR).click();
+        return new HomePage(driver);
     }
 }

@@ -6,10 +6,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage {
+public abstract class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
+    String BASE_URL = "https://cat2.lightning.force.com/";
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
@@ -24,4 +25,11 @@ public class BasePage {
         }
         return true;
     }
+
+    public abstract BasePage open();
 }
+
+
+//LOADABLE PAGE
+//CHAIN OF INVOCATIONS
+//VALUE OBJECT/FACTORY

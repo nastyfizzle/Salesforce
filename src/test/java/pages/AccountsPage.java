@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AccountsPage extends BasePage {
 
-    public String ACCOUNTS_URL = "https://cat2.lightning.force.com/lightning/o/Account/list?filterName=Recent";
+    public String ACCOUNTS_URL = "lightning/o/Account/list?filterName=Recent";
     public static final By ACCOUNTS_MENU_OPTION = By.xpath("//*[contains(text(), 'Accounts')]/ancestor::*[contains(@class, 'slds-context-bar__label-action dndItem')]");
     private static final By NAVIGATION_BAR = By.xpath("//*[contains(@class, 'oneAppNavContainer')]");
     public static final By TABLE = By.xpath("//*[contains(@class, 'splitview-content')]");
@@ -17,9 +17,14 @@ public class AccountsPage extends BasePage {
         super(driver);
     }
 
-    public void open() {
-        //driver.findElement(ACCOUNTS_MENU_OPTION).click();
-        driver.get(ACCOUNTS_URL);
+    @Override
+    public AccountsPage open() {
+        driver.get(BASE_URL + ACCOUNTS_URL);
+        return this;
+    }
+
+    public void openMenu(String menuOption) {
+        driver.findElement(ACCOUNTS_MENU_OPTION).click();
     }
 
     public boolean isNavigationBarOpened() {

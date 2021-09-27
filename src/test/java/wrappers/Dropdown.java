@@ -8,7 +8,7 @@ public class Dropdown {
     WebDriver driver;
     String label;
     String dropdownLocator = "//*[contains(text(), '%s')]/ancestor::*[contains(@class, 'uiInputSelect')]";
-    String selectOptionLocator = "//*[contains(@class,'select-options')]/descendant::a[contains(text(),'%s')]";
+    String selectOptionLocator = "//*[contains(@class,'select-options')]/descendant::a[contains(text(),'%s')]"; //a[@title='%s']
 
     public Dropdown(WebDriver driver, String label) {
         this.driver = driver;
