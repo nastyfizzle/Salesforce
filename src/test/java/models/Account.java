@@ -23,6 +23,52 @@ public class Account {
     String shippingZipPostalCode;
     String shippingCountry;
 
+    public Account(String accountName, String phone, String fax, String webSite, String option, String option1, String employees,
+                   String annualRevenue, String description, String billingStreet, String billingCity, String billingStateProvince,
+                   String billingZipPostalCode, String billingCountry, String shippingStreet, String shippingCity, String shippingStateProvince,
+                   String shippingZipPostalCode, String shippingCountry) {
+        this.accountName = accountName;
+        this.phone = phone;
+        this.fax = fax;
+        this.webSite = webSite;
+        this.option = option;
+        this.option1 = option1;
+        this.employees = employees;
+        this.annualRevenue = annualRevenue;
+        this.description = description;
+        this.billingStreet = billingStreet;
+        this.billingCity = billingCity;
+        this.billingStateProvince = billingStateProvince;
+        this.billingZipPostalCode = billingZipPostalCode;
+        this.billingCountry = billingCountry;
+        this.shippingStreet = shippingStreet;
+        this.shippingCity = shippingCity;
+        this.shippingStateProvince = shippingStateProvince;
+        this.shippingZipPostalCode = shippingZipPostalCode;
+        this.shippingCountry = shippingCountry;
+    }
+
+
+
+    public Account(String accountName, String phone, String fax, String webSite, String option, String option1, String employees,
+                   String annualRevenue, String description, String billingStreet, String billingCity, String billingStateProvince,
+                   String billingZipPostalCode, String billingCountry) {
+        this.accountName = accountName;
+        this.phone = phone;
+        this.fax = fax;
+        this.webSite = webSite;
+        this.option = option;
+        this.option1 = option1;
+        this.employees = employees;
+        this.annualRevenue = annualRevenue;
+        this.description = description;
+        this.billingStreet = billingStreet;
+        this.billingCity = billingCity;
+        this.billingStateProvince = billingStateProvince;
+        this.billingZipPostalCode = billingZipPostalCode;
+        this.billingCountry = billingCountry;
+    }
+
     public String getAccountName() {
         return accountName;
     }
@@ -172,28 +218,6 @@ public class Account {
     }
 
     public void setShippingCountry(String shippingCountry) {
-        this.shippingCountry = shippingCountry;
-    }
-
-    public Account(String accountName, String phone, String fax, String webSite, String option, String option1, String employees, String annualRevenue, String description, String billingStreet, String billingCity, String billingStateProvince, String billingZipPostalCode, String billingCountry, String shippingStreet, String shippingCity, String shippingStateProvince, String shippingZipPostalCode, String shippingCountry) {
-        this.accountName = accountName;
-        this.phone = phone;
-        this.fax = fax;
-        this.webSite = webSite;
-        this.option = option;
-        this.option1 = option1;
-        this.employees = employees;
-        this.annualRevenue = annualRevenue;
-        this.description = description;
-        this.billingStreet = billingStreet;
-        this.billingCity = billingCity;
-        this.billingStateProvince = billingStateProvince;
-        this.billingZipPostalCode = billingZipPostalCode;
-        this.billingCountry = billingCountry;
-        this.shippingStreet = shippingStreet;
-        this.shippingCity = shippingCity;
-        this.shippingStateProvince = shippingStateProvince;
-        this.shippingZipPostalCode = shippingZipPostalCode;
         this.shippingCountry = shippingCountry;
     }
 }

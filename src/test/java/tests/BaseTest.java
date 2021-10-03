@@ -5,10 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import pages.AccountDetailsPage;
-import pages.AccountsPage;
-import pages.LoginPage;
-import pages.NewAccountModalPage;
+import pages.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,9 +13,14 @@ public class BaseTest {
     private WebDriver driver;
 
     LoginPage loginPage;
+    HomePage homePage;
     AccountsPage accountsPage;
     NewAccountModalPage newAccountModalPage;
     AccountDetailsPage accountDetailsPage;
+    ContactsPage contactsPage;
+    NewContactModalPage newContactModalPage;
+    ContactDetailsPage contactDetailsPage;
+
 
     @BeforeMethod(alwaysRun = true)
     public void setup() {
@@ -28,9 +30,13 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         loginPage = new LoginPage(driver);
+        homePage = new HomePage(driver);
         accountsPage = new AccountsPage(driver);
         newAccountModalPage = new NewAccountModalPage(driver);
         accountDetailsPage = new AccountDetailsPage(driver);
+        contactsPage = new ContactsPage(driver);
+        newContactModalPage = new NewContactModalPage(driver);
+        contactDetailsPage = new ContactDetailsPage(driver);
     }
 
     @AfterMethod(alwaysRun = true)

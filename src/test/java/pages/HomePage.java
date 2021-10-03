@@ -3,14 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
-    public String HOME_URL = "/lightning/page/home";
-    public static final By NAVIGATION_OPTIONS = By.xpath("//*[contains(text(), '%s')]/ancestor::*[contains(@class, 'slds-context-bar__label-action dndItem')]");
-    private static final By NAVIGATION_BAR = By.xpath("//*[contains(@class, 'oneAppNavContainer')]");
-    public static final By SEARCH_FIELD = By.xpath("//*[contains(@class, 'inputWrapper')]");
-    public static final By HEADER = By.id("oneHeader");
-
+    public static final String HOME_ENDPOINT = "lightning/page/home";
+    public static final By TAB_OPTION = By.xpath("//*[contains(text(), 'Home')]/ancestor::*[contains(@class, 'slds-context-bar__label-action dndItem')]");
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -18,11 +14,14 @@ public class HomePage extends BasePage{
 
     @Override
     public HomePage open() {
-        driver.get(BASE_URL + HOME_URL);
-        return null;
+        driver.get(BASE_URL + HOME_ENDPOINT);
+        isPageOpened();
+        return this;
     }
 
-    public boolean isPageOpened() {
-        return isVisible(HEADER);
+    @Override
+    public HomePage isPageOpened() {
+        isVisible(TAB_OPTION);
+        return this;
     }
 }

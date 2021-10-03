@@ -5,11 +5,10 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPage extends BasePage {
 
-    public static final String LOGIN_URL = "https://cat2.my.salesforce.com/";
+    public static final String LOGIN_URL = "https://cat2.my.salesforce.com";
     private static final By USERNAME_LOCATOR = By.id("username");
     private static final By PASSWORD_LOCATOR = By.id("password");
     private static final By LOGIN_BUTTON_LOCATOR = By.id("Login");
-    private static final By LOGIN_FORM = By.id("login_form");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -18,11 +17,14 @@ public class LoginPage extends BasePage {
     @Override
     public LoginPage open() {
         driver.get(LOGIN_URL);
+        isPageOpened();
         return this;
     }
 
-    public boolean isPageOpened() {
-        return isVisible(LOGIN_FORM);
+    @Override
+    public LoginPage isPageOpened() {
+        isVisible(LOGIN_BUTTON_LOCATOR);
+        return this;
     }
 
     public HomePage login(String username, String password) {

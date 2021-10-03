@@ -10,8 +10,7 @@ public class Checkbox {
 
     WebDriver driver;
     String label;
-    String checkboxLocator = "[type='checkbox']";
-
+    String checkboxLocator = "//span[contains(text(), '%s')]//ancestor::*[contains(@class, 'uiInput')]//descendant::*[contains(@type, 'checkbox')]";
 
     public Checkbox(WebDriver driver, String label) {
         this.driver = driver;
@@ -19,12 +18,10 @@ public class Checkbox {
     }
 
     public void selectCheckbox() {
-        List<WebElement> checkBoxes = driver.findElements(By.cssSelector(checkboxLocator));
-        checkBoxes.get(0).click();
+        driver.findElement(By.xpath(String.format(checkboxLocator, label))).click();
     }
 
     public void deselectCheckbox() {
-        List<WebElement> checkBoxes = driver.findElements(By.cssSelector(checkboxLocator));
-        checkBoxes.get(0).click();
+        driver.findElement(By.xpath(String.format(checkboxLocator, label))).click();
     }
 }
