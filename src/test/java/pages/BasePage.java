@@ -1,6 +1,5 @@
 package pages;
 
-import models.Account;
 import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -25,14 +24,12 @@ public abstract class BasePage {
 
     public abstract BasePage isPageOpened();
 
-    public boolean isVisible(By locator) {
+    public void isVisible(By locator) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         } catch (TimeoutException exception) {
             Assert.fail("Element hasn't been found by locator:" + locator);
-            return false;
         }
-        return true;
     }
 
     public void openMenuOfNavigationBar(String nameOfMenuOption) {
