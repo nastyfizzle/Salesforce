@@ -1,5 +1,6 @@
 package tests;
 
+import models.Contact;
 import models.ContactFactory;
 import org.testng.annotations.Test;
 
@@ -15,9 +16,10 @@ public class ContactsTest extends BaseTest{
         contactsPage
                 .open()
                 .openModalScreen();
+        Contact contact = ContactFactory.get();
         newContactModalPage
                 .open()
-                .fillInForm(ContactFactory.get())
+                .fillInForm(contact)
                 .clickSave();
         assertEquals(contactDetailsPage.getContactDetails(), "Mr. Liam Boil", "Account details are wrong");
     }

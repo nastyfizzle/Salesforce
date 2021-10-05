@@ -33,7 +33,7 @@ public class NewContactModalPage extends BasePage {
     }
 
     public NewContactModalPage fillInForm(Contact contact) {
-        new Dropdown(driver, "Salutation").selectOption(contact.getSalutation());
+        new Dropdown(driver, "Salutation").selectOptionContact(contact.getSalutation());
         new Input(driver, "First Name").write(contact.getFirstName());
         new Input(driver, "Last Name").write(contact.getLastName());
         new SearchInput(driver, "Account Name").selectOption(contact.getAccountName());
