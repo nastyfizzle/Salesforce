@@ -1,7 +1,7 @@
 package tests;
 
+import models.Account;
 import models.AccountFactory;
-import models.AccountMandatoryFactory;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
@@ -16,9 +16,10 @@ public class AccountsTest extends BaseTest {
         accountsPage
                 .open()
                 .openModalScreen();
+        Account account = AccountFactory.getAllFields();
         newAccountModalPage
                 .open()
-                .fillInForm(AccountFactory.get())
+                .fillInForm(account)
                 .clickSave();
         assertEquals(accountDetailsPage.getAccountDetails(), "Lorne Malvo", "Account details are wrong");
     }
@@ -31,11 +32,13 @@ public class AccountsTest extends BaseTest {
         accountsPage
                 .open()
                 .openModalScreen();
+        Account account = AccountFactory.getMandatoryFields();
         newAccountModalPage
                 .open()
-                .fillInForm(AccountMandatoryFactory.get())
-                .clickSave()
-                .validateAccount(AccountMandatoryFactory.get()); //todo а эта проверка сработала, подскажи как лучше пожалуйста :)
+                .fillInFormWithMandatoryFields(account)
+                .clickSave();
+        assertEquals(accountDetailsPage.getAccountDetails(), "Ray Donovan", "Account details are wrong");
+                //.validateAccount(AccountMandatoryFactory.get()); //todo а эта проверка сработала, подскажи как лучше пожалуйста :)
     }
 }
 

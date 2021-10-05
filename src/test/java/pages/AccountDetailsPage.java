@@ -1,6 +1,5 @@
 package pages;
 
-import models.AccountMandatory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -31,9 +30,9 @@ public class AccountDetailsPage extends BasePage {
         return driver.findElement(By.xpath(accountDetails)).getText();
     }
 
-    public void validateAccount(AccountMandatory accountMandatory) {
-        validateInput("Account Name", accountMandatory.getAccountName());
-    }
+//    public void validateAccount(AccountMandatory accountMandatory) {
+//        validateInput("Account Name", accountMandatory.getAccountName());
+//    }
 
     public AccountDetailsPage openDetailsTab() {
         isVisible(DETAILS_TAB);
