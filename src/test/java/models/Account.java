@@ -1,7 +1,7 @@
 package models;
 
 //POJO (plain old Java object)
-public class Account {
+public class Account<accountName, phone> {
 
     String accountName;
     String phone;
@@ -48,7 +48,9 @@ public class Account {
         this.shippingCountry = shippingCountry;
     }
 
-
+    public Account(String accountName) {
+        this.accountName = accountName;
+    }
 
     public Account(String accountName, String phone, String fax, String webSite, String option, String option1, String employees,
                    String annualRevenue, String description, String billingStreet, String billingCity, String billingStateProvince,
