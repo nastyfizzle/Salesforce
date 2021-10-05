@@ -60,7 +60,7 @@ public class NewAccountModalPage extends BasePage {
         return this;
     }
 
-    public NewAccountModalPage fillInFormWihoutShippingFields(Account account) {
+    public NewAccountModalPage fillInFormWithoutShippingFields(Account account) {
         new Input(driver, "Account Name").write(account.getAccountName());
         new Input(driver, "Phone").write(account.getPhone());
         new Input(driver, "Fax").write(account.getFax());
